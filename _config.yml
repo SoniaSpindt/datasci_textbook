@@ -1,8 +1,22 @@
 # Book settings
-title: My sample book
-author: The Jupyter Book Community
+title: Data Science
+author: Sonia Spindt
 logo: logo.png
 
 latex:
   latex_documents:
     targetname: book.tex
+
+repository:
+  url                       : https://github.com/SoniaSpindt/datasci_textbook  # Online location of your book
+  #path_to_book              : path/to/book  # Optional path to your book, relative to the repository root
+  branch                    : main  # Which branch of the repository should be used when creating links (optional)
+
+launch_buttons:
+  binderhub_url: "https://mybinder.org"  # The URL for your BinderHub (e.g., https://mybinder.org)
+  thebe: true
+
+exclude_patterns: [README.md]
+
+execute:
+  execute_notebooks: 'off'

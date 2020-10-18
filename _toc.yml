@@ -1,5 +1,7 @@
-- file: intro
-- file: content
+- file: welcome
+  numbered: true
+- file: Term2/intro
   sections:
-    - file: markdown
-    - file: notebooks
+    - file: Term2/Week1/statements
+    - file: Term2/Week1/expressions
+    - file: Term2/Week1/variables
