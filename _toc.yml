@@ -5,3 +5,11 @@
     - file: Term2/Week1/statements
     - file: Term2/Week1/expressions
     - file: Term2/Week1/variables
+    - file: Term2/Week1/recap
+
+- file: Term2/functions
+  sections:
+    - file: Term2/Week2/calls
+    - file: Term2/Week2/importing
+
+- file: Term2/arrays

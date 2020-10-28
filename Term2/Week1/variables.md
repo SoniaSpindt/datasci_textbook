@@ -64,9 +64,9 @@ Need another example? Let’s see how a Python program can be used in medicine t
 Guess what! Doctors use computers to determine the concentration of these proteins in the blood! You can imagine that if a patient has a lot of Troponin in his/her/their blood, then their heart is really struggling! Here is a simple program that can determine if someone is having a heart attack.
 
 ```{code-cell} Python
-enzymesHour0 = 2.0;
-enzymesHour6 = 320.0;
-rateOfChange = (enzymesHour6 - enzymesHour0) / (6 - 0);
+enzymesHour0 = 2.0
+enzymesHour6 = 320.0
+rateOfChange = (enzymesHour6 - enzymesHour0) / (6 - 0)
 print(rateOfChange)
 ```
 Take a moment to read this program, line by line. See if you can predict what your computer will do once this program is executed. Once you are done, press the run button to see if you are right!
@@ -107,4 +107,4 @@ Here is how our computer would reason about this program:
 :height: 300px
 ```
 
-<br>I REALLY need you to notice that the values stored in `score` and `percentChange` are the MOST RECENT values assigned to the variables after program execution has completed. What makes something the most recent value? That depends on how many lines of code our computer has executed. If we were to ask this question right after our computer executed line 4 of the program above, then the most recent values of `score` and `percentChange` would be 100 and 45.7 respectively. Our computer has no awareness of what has happened or what will happen — remember, it lives in the moment! So, the most recent assignment is the assignment which occurs closest to the most recent line of code that has been executed. If we assume the entire program has just been executed, then 200 and 11.2 would be the most recent values assigned to `score` and `percentChange`.
+<br>I REALLY need you to notice that the values stored in `score` and `percentChange` are the MOST RECENT values assigned to the variables after program execution has completed. What makes something the most recent value? That depends on how many lines of code our computer has executed. If we were to ask this question right after our computer executed line 2 of the program above, then the most recent values of `score` and `percentChange` would be 100 and 45.7 respectively. Our computer has no awareness of what has happened or what will happen — remember, it lives in the moment! So, the most recent assignment is the assignment which occurs closest to the most recent line of code that has been executed. If we assume the entire program has just been executed, then 200 and 11.2 would be the most recent values assigned to `score` and `percentChange`.
