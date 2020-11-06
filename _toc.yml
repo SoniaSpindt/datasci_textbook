@@ -13,3 +13,12 @@
     - file: Term2/Week2/importing
 
 - file: Term2/arrays
+  sections:
+    - file: Term2/Week3/important_functions
+    - file: Term2/Week3/numpy
+
+- file: Term2/tables
+  sections:
+    - file: Term2/Week4/creating_tables
+    - file: Term2/Week4/manipulating_columns
+    - file: Term2/Week4/manipulating_rows
