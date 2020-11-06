@@ -60,7 +60,7 @@ In the above example, I am passing eight arguments into the `with_columns` funct
 Imagine how much typing you would have to do if you were to create any reasonably sized data set by hand. What happened to embracing our lazy selves? Don't worry, there's a different function you can use to create tables from csv files [^*], and it's named `read_table`. Here's an example of what it looks like to create a table from the data contained within a csv file named "election2012.csv":
 ```{code-cell}Python
 from datascience import *
-election = Table().read_table(election2012.csv)
+election = Table().read_table("election2012.csv")
 print(election)
 ```
 Whew! That was a lot easier, right? Although data collection is an important part of being a data scientist, we won't cover that process in this class. Instead, all of the data sets that you analyze will be collected by another data scientist in the world and packaged into a nice, neat csv file.

@@ -12,45 +12,45 @@ kernelspec:
 Manipulating Rows
 =================
 
-Of course! The following functions are used to manipulate the rows of a table.
+Duhhh! The following functions are used to manipulate the rows of a table.
 
 ***Size***<br>
 The function `num_rows` returns the number of rows that exist in a table.
 
 ```{code-cell}Python
 from datascience import *
-example = Table().with_columns("Numbers", make_array(1, 2, 3))
-print("Number of rows:", example.num_rows)
+nba = Table().read_table("NBA_salaries.csv")
+print("Number of rows:", nba.num_rows)
 ```
 ***Accessing Data***<br>
 Need a specific item within a row? Use an index value, the `column` function AND the `item` function to retrieve it.
 ```{code-cell}Python
 from datascience import *
-example = Table().with_columns("Student", make_array("Sonia Spindt", "Shro Jacque"), "Student ID", make_array(33327, 74829))
-print(example.column(0).item(1))
+nba = Table().read_table("NBA_salaries.csv")
+print(nba.column(0).item(1))
 ```
 
 ***Sorting rows***<br>
 Want to see just a certain number of rows in your table? The `show` function can help you out.
 ```{code-cell}Python
 from datascience import *
-nba_salaries = Table.read_table(https://www.statcrunch.com/app/index.php?dataid=1843341 + 'nba_salaries.csv')
-#This displays the first 3 rows of the nba_salaries table.
-nba_salaries.show(3)
+nba = Table().read_table("NBA_salaries.csv")
+#This displays the first 3 rows of the nba table.
+nba.show(3)
 ```
 You may have noticed that this table is organized alphabetically by team name. If you want to sort your data by player name instead, you can use the `sort` function. Feel free to stick multiple function calls together! Your computer will execute these function calls from left to right.
 ```{code-cell}Python
 from datascience import *
-nba_salaries = Table.read_table(https://www.statcrunch.com/app/index.php?dataid=1843341 + 'nba_salaries.csv')
-nba_salaries.sort("PLAYER").show(3)
+nba = Table().read_table("NBA_salaries.csv")
+nba.sort("PLAYER").show(3)
 ```
 ***Selecting rows***<br>
 The function `take` does just that – it takes a specified set of rows. Its argument is an index or array of indices, and it creates a new table consisting of only those rows.
 ```{code-cell}Python
 from datascience import *
-nba_salaries = Table.read_table(https://www.statcrunch.com/app/index.php?dataid=1843341 + 'nba_salaries.csv')
-nba_salaries.take(0)
-nba_salaries.take(make_array(0, 1, 2, 3, 4))
+nba = Table().read_table("NBA_salaries.csv")
+nba.take(0)
+nba.take(make_array(0, 1, 2, 3, 4))
 ```
 More often, we will want to access data in a set of rows that have a certain feature, but whose indices we don't know ahead of time. For example, we might want data on all the players who made more than  $10 million, but we don't want to spend time counting rows in the sorted table.
 
