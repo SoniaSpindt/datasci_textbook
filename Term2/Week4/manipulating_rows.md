@@ -27,7 +27,7 @@ Need a specific item within a row? Use an index value, the `column` function AND
 ```{code-cell}Python
 from datascience import *
 nba = Table().read_table("NBA_salaries.csv")
-print(nba.column(0).item(1))
+nba.column(0).item(1)
 ```
 
 ***Sorting rows***<br>
@@ -38,55 +38,47 @@ nba = Table().read_table("NBA_salaries.csv")
 #This displays the first 3 rows of the nba table.
 nba.show(3)
 ```
-You may have noticed that this table is organized alphabetically by team name. If you want to sort your data by player name instead, you can use the `sort` function. Feel free to stick multiple function calls together! Your computer will execute these function calls from left to right.
+You may have noticed that this table doesn't seem to be organized in any particular way. What if you wanted to organize the data by "PLAYER"? You can use the `sort` function to reorganize the data found within a table. Feel free to stick multiple function calls together! Your computer will execute these function calls from left to right.
 ```{code-cell}Python
 from datascience import *
 nba = Table().read_table("NBA_salaries.csv")
 nba.sort("PLAYER").show(3)
 ```
 ***Selecting rows***<br>
-The function `take` does just that – it takes a specified set of rows. Its argument is an index or array of indices, and it creates a new table consisting of only those rows.
+You can choose a subset of rows from your table by calling the `take` function. Its argument is an index (or array of indices), and it creates a new table consisting of only those rows.
 ```{code-cell}Python
 from datascience import *
 nba = Table().read_table("NBA_salaries.csv")
 nba.take(0)
 nba.take(make_array(0, 1, 2, 3, 4))
 ```
-More often, we will want to access data in a set of rows that have a certain feature, but whose indices we don't know ahead of time. For example, we might want data on all the players who made more than  $10 million, but we don't want to spend time counting rows in the sorted table.
 
-The function `where` does the job for us. Its output is a table with the same columns as the original but only the rows where the feature occurs.
+***Selecting by A Specific Feature***
+<br>More often than not, you will want to access data in a set of rows that share a certain feature or characteristic, but whose indices we don't know ahead of time. For example, you might want to gather data on all the players who made more than $10 million. Obviously, not every player in this table will meet this criteria, and we certainly don't want to count the rows by hand (that's over 400 rows of data to count!).
 
-The first argument of `where` is the label of the column that contains the information about whether or not a row has the feature we want. If the feature is "made more than  $10  million", the column is SALARY.
+Don't worry! The function `where` can do the job for us. Its output is a table with the same columns as the original but only the rows where the feature occurs.
 
-The second argument of where is a way of specifying the feature. A couple of examples will make the general method of specification easier to understand.
+The first argument of `where` is the label of the column that contains the information we might want. In this case, we want to focus on the "SALARY" column because this contains information about a player's earnings.
 
-In the first example, we extract the data for all those who earned more than  $10  million.
+The second argument of `where` is a way of asking our computer a question about the data in a particular column. In this case we want to ask "*who made more than $10 million dollars?*" and the way we ask this question looks like this:
+
 ```{code-cell}Python
 from datascience import *
-nba_salaries = Table.read_table(https://www.statcrunch.com/app/index.php?dataid=1843341 + 'nba_salaries.csv')
-nba_salaries.where('SALARY', are.above(10))
+nba = Table().read_table("NBA_salaries.csv")
+nba.where('SALARY', are.above(10))
 ```
-The use of the argument are.above(10) ensured that each selected row had a value of SALARY that was greater than 10.
+In the program above, Python will look at each value in the "SALARY" column and check to see if it's greater than 10. If it is, then it will pull the row that contains this value and put it in a new table. If it's not, it will move on and check the next value until it has reached the end of the table.
 
-There are 69 rows in the new table, corresponding to the 69 players who made more than  10  million dollars. Arranging these rows in order makes the data easier to analyze. DeMar DeRozan of the Toronto Raptors was the "poorest" of this group, at a salary of just over  10  million dollars.
-```{code-cell}Python
-from datascience import *
-nba_salaries = Table.read_table(https://www.statcrunch.com/app/index.php?dataid=1843341 + 'nba_salaries.csv')
-nba_salaries.where('SALARY', are.above(10)).sort('SALARY')
-```
+The use of the argument `are.above(10)` represents a collection of arguments we can pass into the `where` function called ***predicates***. There are a lot of predicates that you should know because, as you saw above, these can make shifting through data a lot faster and easier.
 
-How much did Stephen Curry make? For the answer, we have to access the row where the value of PLAYER is equal to Stephen Curry. That is placed a table consisting of just one line:
-```{code-cell}Python
-from datascience import *
-nba_salaries = Table.read_table(https://www.statcrunch.com/app/index.php?dataid=1843341 + 'nba_salaries.csv')
-nba_salaries.where('PLAYER', are.equal_to('Stephen Curry'))
+```{image} predicate.png
+:alt: Predicates
+:height: 400px
 ```
 
-Curry made just under  $11.4  million dollars. That's a lot of money, but it's less than half the salary of LeBron James. You'll find that salary in the "Top 5" table earlier in this section, or you could find it replacing 'Stephen Curry' by 'LeBron James' in the line of code above.
+You can negate any of the predicates above by writing `not` out front!
 
-In the code, are is used again, but this time with the predicate equal_to instead of above. Thus for example you can get a table of all the Warriors:
-```{code-cell}Python
-from datascience import *
-nba_salaries = Table.read_table(https://www.statcrunch.com/app/index.php?dataid=1843341 + 'nba_salaries.csv')
-nba_salaries.where('TEAM', are.equal_to('Golden State Warriors')).show()
+```{image} NOTpredicate.png
+:alt: Predicates
+:height: 150px
 ```
