@@ -22,3 +22,8 @@
     - file: Term2/Week4/creating_tables
     - file: Term2/Week4/manipulating_columns
     - file: Term2/Week4/manipulating_rows
+
+- file: Term2/visualization
+  sections:
+    - file: Term2/Week5/scatterplot
+    - file: Term2/Week5/linegraph

@@ -30,7 +30,7 @@ nba = Table().read_table("NBA_salaries.csv")
 nba.column(0).item(1)
 ```
 
-***Sorting rows***<br>
+***aing rows***<br>
 Want to see just a certain number of rows in your table? The `show` function can help you out.
 ```{code-cell}Python
 from datascience import *
@@ -65,7 +65,7 @@ The second argument of `where` is a way of asking our computer a question about 
 ```{code-cell}Python
 from datascience import *
 nba = Table().read_table("NBA_salaries.csv")
-nba.where('SALARY', are.above(10))
+nba.where("SALARY ($M)", are.above(10))
 ```
 In the program above, Python will look at each value in the "SALARY" column and check to see if it's greater than 10. If it is, then it will pull the row that contains this value and put it in a new table. If it's not, it will move on and check the next value until it has reached the end of the table.
 

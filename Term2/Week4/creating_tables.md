@@ -27,7 +27,7 @@ print(table)
 :height: 200px
 ```
 
-<br>Yeah, you're right; an empty table doesn't get us very far. It would be a lot more useful to create a table that at least has some column labels. How do we do that? You call a different function from the datascience module! It looks like this:
+<br>Yeah, you're right; an empty table doesn't get us very far. It would be a lot more useful to create a table that at least has some column labels. How do we do that? You call the `with_columns` function! It looks like this:
 
 ```{code-cell}Python
 from datascience import *
