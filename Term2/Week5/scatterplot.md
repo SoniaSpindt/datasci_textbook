@@ -39,8 +39,46 @@ The plot contains 50 points, one point for each actor in the table. You might al
 :alt: Told you so
 :height: 300px
 ```
-Formally, we say that the plot shows an <i>association</i> between the variables, and that the association is <i>positive</i>: high values of one variable tend to be associated with high values of the other, and low values of one with low values of the other, in general.
+<br>Formally, we say that the plot shows an <i>association</i> between the variables, and that the association is <i>positive</i>: high values of one variable tend to be associated with high values of the other, and low values of one with low values of the other, in general.
 
 Of course there is some variability. Some actors are literally in everything but they're not making anything close to what Harrison Ford is making. Others have been in very few movies but got paid a TON. <i>The association is positive</i> is simply a statement about the broad general trend.
 
-Now that we have explored how the number of movies is related to the total , let's turn our attention to how it is related to the average gross receipt per movie.
+Now that we have explored how the number of movies is related to the total money earned, let's turn our attention to how it is related to the average amount earned per movie.
+```{code-cell}Python
+from datascience import *
+actors = Table().read_table("actors.csv")
+actors.scatter("Number of Movies", "Average per Movie")
+```
+This is a totally different picture, and shows a negative association! In general, the more movies an actor has been in, the less the average receipt per movie. Bet your gut didn't tell you that.
+
+Also, one of the points is quite high and off to the left of the plot. It corresponds to one actor who has a low number of movies and high average per movie. This point is an <i>outlier</i>. It lies outside the general range of the data.
+
+We will examine the negative association further by looking at points at the right and left ends of the plot. For the right end, let's zoom in on the main body of the plot by just looking at the portion that doesn't have the outlier.
+```{code-cell}Python
+from datascience import *
+actors = Table().read_table("actors.csv")
+no_outlier = actors.where('Number of Movies', are.above(10))
+no_outlier.scatter('Number of Movies', 'Average per Movie')
+```
+Hmmmmmmm...the negative association is still clearly visible. Let's identify the actors corresponding to the points that lie on the right hand side of the plot where the number of movies is large:
+```{code-cell}Python
+from datascience import *
+actors = Table().read_table("actors.csv")
+actors.where('Number of Movies', are.above(60))
+no_outlier.scatter('Number of Movies', 'Average per Movie')
+```
+Robert DeNiro has the highest number of movies and the lowest average salary per movie. Other actors are not very far away, but DeNiro's is at the extreme end.
+
+To understand the negative association, note that the more movies an actor is in, the more variable those movies might be, in terms of style, genre, and box office draw. For example, an actor might be in some high-grossing action movies or comedies (such as Meet the Fockers), and also in a large number of smaller films that may be excellent but don't pull in large crowds. Thus the actor's value per movie might be relatively low.
+
+To approach this argument from a different direction, let us now take a look at the outlier.
+```{code-cell}Python
+from datascience import *
+actors = Table().read_table("actors.csv")
+actors.where('Number of Movies', are.below(10))
+```
+First of all, who? Anthony Daniels is not a household name, but the character he has played in all of his 7 movies is adored by people across the world! He played <a href="https://starwars.fandom.com/wiki/C-3PO">C-3PO</a> in Star Wars, and he earned an average of 452 million dollars per movie that he made! Crazy, right?
+
+Mr. Daniels' entire filmography (apart from cameos) consists of movies in the high-grossing Star Wars franchise. That explains why he has made so much money even though, comparatively, he has made very few movies.
+
+If you think about it, variables such as genre and production budget have an effect on the association between the number of movies and the average salary per movie. Let this be the reminder that studying the association between two variables often involves understanding other related variables as well! So don't stop graphing just because you examined a single relationship between variables.
