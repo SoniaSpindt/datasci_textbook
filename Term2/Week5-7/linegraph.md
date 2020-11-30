@@ -59,4 +59,19 @@ movies = Table().read_table("movies_by_year.csv")
 century_21 = movies.where('Year', are.above(1999))
 century_21.where('Year', are.equal_to(2009))
 ```
-Avatar was released during 2009!  Not only was Avatar the #1 movie of 2009, it is also, by some calculations, the second highest grossing movie of all time! 
+Avatar was released during 2009!  Not only was Avatar the #1 movie of 2009, it is also, by some calculations, the second highest grossing movie of all time!
+
+Before you go, it's important to mention that you can include more arguments in `scatter` and `plot` if you need to change the way your visualization looks. There comes a time in every data scientists life where they run across a data set that is really big! In many of these cases, your x-axis will look like trash because all of the labels will overlap one another. Here's a great example of this phenomenon:
+
+```{image} line3.png
+:alt: Graph 7
+:height: 300px
+```
+
+You couuuuld remove data from the csv file until it all fits on your x-axis, but that kind of sucks for argumentative purposes; the more data you use in your analysis, the more confident you can be that your conclusions are right after all! Instead, it would be nice to simply have a bigger graph. Well, you can achieve this look by adding the `width` and `height` arguments to the `plot` function call, like so.
+
+```Python
+table.plot('X-Axis Data', 'Y-Axis Data', width=20, height=10)
+```
+
+Here is more information about the arguments you can add to both our <a href="http://data8.org/datascience/_autosummary/datascience.tables.Table.scatter.html?highlight=scatter#datascience.tables.Table.scatter">scatter</a> and <a href="http://data8.org/datascience/_autosummary/datascience.tables.Table.plot.html?highlight=plot#datascience.tables.Table.plot">plot</a> functions.
