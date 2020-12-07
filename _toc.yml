@@ -29,3 +29,5 @@
     - file: Term2/Week5-7/linegraph
     - file: Term2/Week5-7/barchart
     - file: Term2/Week5-7/frequency
+    - file: Term2/Week5-7/overlaid
+    - file: Term2/Week5-7/overlay_scatter
