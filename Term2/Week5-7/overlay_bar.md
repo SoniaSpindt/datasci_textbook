@@ -19,9 +19,6 @@ The Kaiser Family Foundation has complied Census data on the distribution of rac
 from datascience import *
 all_US = Table().read_table("kaiserUS.csv")
 all_US.show(3)
-
-child_US = Table().read_table("kaiserUSChild.csv")
-child_US.show(3)
 ```
 
 Here is a table adapted from their data for the United States and California. The columns represent everyone in the U.S.A., everyone in California, children in the U.S.A., and children in California. The body of the table contains proportions in the different categories. Each column shows the distribution of ethnicities in the group of people corresponding to that column. So in each column, the entries add up to 1.
