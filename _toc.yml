@@ -5,7 +5,6 @@
     - file: Term2/Week1/statements
     - file: Term2/Week1/expressions
     - file: Term2/Week1/variables
-    - file: Term2/Week1/recap
 
 - file: Term2/functions
   sections:
@@ -31,3 +30,5 @@
     - file: Term2/Week5-7/frequency
     - file: Term2/Week5-7/overlaid
     - file: Term2/Week5-7/overlay_scatter
+    - file: Term2/Week5-7/overlay_line
+    - file: Term2/Week5-7/overlay_bar
